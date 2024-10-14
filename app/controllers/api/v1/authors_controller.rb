@@ -2,7 +2,9 @@ module API
   module V1
     class AuthorsController < ApplicationController
       def index
-        authors = Author.page(params[:page])
+        authors = Author.all
+        authors = authors.search_by_competence(params[:competence_id]) if params[:competence_id].present?
+        authors = authors.page(params[:page])
 
         render json: authors, each_serializer: AuthorSerializer
       end

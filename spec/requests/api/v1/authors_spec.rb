@@ -24,14 +24,26 @@ RSpec.describe 'api/v1/authors', type: :request do
       produces 'application/json'
       description 'Retrieves authors.'
 
+      parameter name: :competence_id, in: :path, type: :array, items: { type: :integer }, description: 'Competence IDs'
       parameter name: :page, in: :path, type: :integer, description: 'Page number'
 
       response(200, 'successful') do
         schema type: :array, items: { '$ref' => '#/components/schemas/author' }
 
+        let!(:competence_1) { create(:competence) }
+        let!(:competence_2) { create(:competence) }
+
         let!(:author_1) { create(:author) }
+        let!(:course_1_2) { create(:course, author: author_1, competences: [competence_1, competence_2]) }
+        let!(:course_1_3) { create(:course, author: author_1, competences: [competence_2]) }
+
         let!(:author_2) { create(:author) }
+        let!(:course_2_1) { create(:course, author: author_2, competences: [competence_2]) }
+
         let!(:author_3) { create(:author) }
+        let!(:course_3_1) { create(:course, author: author_3, competences: [competence_1]) }
+
+        let(:competence_id) { [competence_1.id] }
         let(:page) { 1 }
 
         include_context 'after test'

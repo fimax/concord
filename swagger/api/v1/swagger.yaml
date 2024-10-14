@@ -11,6 +11,14 @@ paths:
       - Authors
       description: Retrieves authors.
       parameters:
+      - name: competence_id
+        in: path
+        items:
+          type: integer
+        description: Competence IDs
+        required: true
+        schema:
+          type: array
       - name: page
         in: path
         description: Page number
@@ -26,14 +34,14 @@ paths:
                 test_example:
                   value:
                   - id: 1
-                    first_name: Geraldine
-                    last_name: Salgado
+                    first_name: Itzel
+                    last_name: Lamas
                   - id: 2
-                    first_name: Lorena
-                    last_name: Espino
+                    first_name: Luis
+                    last_name: León
                   - id: 3
-                    first_name: Marisol
-                    last_name: Onofre
+                    first_name: Martín
+                    last_name: Mora
               schema:
                 type: array
                 items:
@@ -198,12 +206,12 @@ paths:
               examples:
                 test_example:
                   value:
-                  - id: 1
-                    name: hic
-                  - id: 2
-                    name: culpa
                   - id: 3
-                    name: iusto
+                    name: eius
+                  - id: 4
+                    name: assumenda
+                  - id: 5
+                    name: doloremque
               schema:
                 type: array
                 items:
@@ -222,7 +230,7 @@ paths:
               examples:
                 test_example:
                   value:
-                    id: 4
+                    id: 6
                     name: Programming
               schema:
                 "$ref": "#/components/schemas/competence"
@@ -252,7 +260,7 @@ paths:
               examples:
                 test_example:
                   value:
-                    id: 5
+                    id: 7
                     name: Programming
               schema:
                 "$ref": "#/components/schemas/competence"
@@ -287,7 +295,7 @@ paths:
               examples:
                 test_example:
                   value:
-                    id: 6
+                    id: 8
                     name: Coding
               schema:
                 "$ref": "#/components/schemas/competence"
@@ -365,66 +373,59 @@ paths:
               examples:
                 test_example:
                   value:
-                  - id: 1
-                    name: Ea dolore vitae possimus sed.
-                    description: '["Assumenda dolore quod magnam hic. Veritatis soluta
-                      molestiae sequi distinctio laudantium quaerat veniam eos. Voluptatem
-                      corporis distinctio officiis nisi. Voluptates praesentium quo
-                      quisquam nesciunt asperiores.", "Delectus aut ipsam molestiae
-                      consequuntur quam. Non provident voluptates nihil minima. Quo
-                      velit eos labore exercitationem pariatur est reprehenderit.
-                      Laudantium reprehenderit cum ullam distinctio architecto et.
-                      Accusantium veniam sed vel fugiat beatae.", "Dicta quibusdam
-                      quo occaecati ea architecto quis. Consequuntur quia sint atque
-                      beatae possimus accusamus. Quas dolorum repellendus quidem similique
-                      fugit id."]'
+                  - id: 5
+                    name: Optio eum iure voluptatem dolores eius amet labore.
+                    description: '["Inventore voluptas nemo dicta iste accusantium
+                      provident velit amet. Eius veniam fugit labore blanditiis. Voluptas
+                      dignissimos placeat ut quam blanditiis quia nisi alias.", "Architecto
+                      fugiat velit ex provident veniam quia est dolorum. Voluptas
+                      non consequuntur maxime esse rerum. Quidem ad possimus culpa
+                      perspiciatis enim est explicabo.", "Cupiditate doloribus sit
+                      incidunt perspiciatis mollitia rerum molestiae. Unde et non
+                      odit consequatur. Ab praesentium ex sed natus. Libero similique
+                      non nulla labore exercitationem neque earum. Perferendis assumenda
+                      asperiores soluta eaque."]'
                     author:
                       id: 10
-                      first_name: Homero
-                      last_name: Mercado
+                      first_name: Magali
+                      last_name: Aguirre
                     competences:
-                    - id: 9
-                      name: distinctio
-                    - id: 10
-                      name: culpa
-                  - id: 2
-                    name: Delectus eos fugiat consequatur quam maxime culpa.
-                    description: '["Distinctio ipsum fugiat quae dignissimos. Mollitia
-                      doloribus aut minima iure similique temporibus odit cumque.
-                      Non consectetur delectus facilis eos cum fugiat. Praesentium
-                      adipisci numquam laudantium dolore voluptas saepe enim.", "Laborum
-                      corrupti excepturi repudiandae esse dolore pariatur incidunt
-                      occaecati. Adipisci consectetur magni veniam libero praesentium
-                      unde molestiae. Molestias numquam provident exercitationem debitis
-                      ratione. Voluptatum laudantium doloribus provident cum repudiandae.
-                      Distinctio nesciunt reprehenderit nobis facilis assumenda commodi.",
-                      "Repudiandae quae eos asperiores accusantium architecto corrupti.
-                      Cupiditate quis molestias voluptatum at sint asperiores iste
-                      veritatis. Quasi modi quia minima ea iste omnis nesciunt iure.
-                      Soluta est totam magnam temporibus omnis earum."]'
+                    - id: 11
+                      name: beatae
+                    - id: 12
+                      name: molestias
+                  - id: 6
+                    name: Autem sunt eum ad consequatur.
+                    description: '["Natus vero quo alias nemo. Animi tenetur cupiditate
+                      corrupti beatae tempora. Voluptates blanditiis labore amet assumenda
+                      porro.", "Minima vel tempora mollitia repellat. Harum molestias
+                      tenetur in pariatur quibusdam rem cumque eaque. Unde ab nisi
+                      delectus reiciendis doloremque sapiente in fugiat. Eos ex illum
+                      sapiente quas similique ipsam.", "Suscipit corporis iure maxime
+                      illum iste quos natus. Dolore suscipit enim illo optio. Ad dignissimos
+                      repellendus doloribus soluta similique fugit ullam."]'
                     author:
                       id: 11
-                      first_name: Bernardo
-                      last_name: Montes
+                      first_name: Nadia
+                      last_name: Cadenas
                     competences:
-                    - id: 9
-                      name: distinctio
-                  - id: 3
-                    name: Natus sequi cupiditate deleniti distinctio modi velit possimus.
-                    description: '["Aperiam magnam necessitatibus laudantium ex. Animi
-                      voluptates iure in consectetur repellat aliquam officia. Dolor
-                      et distinctio animi laboriosam.", "Aperiam quos dicta accusamus
-                      ab neque doloremque rem. Consectetur laborum quo est quod velit
-                      reiciendis. Quia eos delectus voluptatibus temporibus non. Rerum
-                      accusamus nihil quam nisi.", "A temporibus molestiae consequatur
-                      repudiandae. Nemo maiores in suscipit delectus. Quisquam itaque
-                      voluptates aliquam error eius deserunt sapiente. Rem ad maiores
-                      ullam optio enim quo reiciendis. Incidunt possimus quasi voluptatum
-                      ea."]'
+                    - id: 11
+                      name: beatae
+                  - id: 7
+                    name: Aspernatur nemo sequi sapiente animi consequatur fugit.
+                    description: '["Magni maxime harum corrupti nemo doloremque atque
+                      voluptas repellendus. Eligendi fuga adipisci illo ullam unde.
+                      Suscipit fugiat autem assumenda maxime accusamus voluptates.
+                      Commodi dolorum eos optio quod voluptatum consequuntur vel explicabo.",
+                      "Alias delectus rem ullam quaerat debitis numquam. Ut eaque
+                      laboriosam veniam quibusdam in. Alias quisquam culpa dicta aut
+                      enim.", "Porro optio eligendi laborum eveniet earum dolor. Necessitatibus
+                      ratione reprehenderit pariatur dolor repellendus delectus earum
+                      sed. Fugit eligendi cumque eveniet fuga quia omnis eius beatae."]'
                     author:
                       id: 12
-                      first_name: Ramsés
-                      last_name: Saavedra
+                      first_name: Virginia
+                      last_name: Quintal
                     competences: []
               schema:
                 type: array
@@ -444,13 +445,13 @@ paths:
               examples:
                 test_example:
                   value:
-                    id: 4
+                    id: 8
                     name: Programming
                     description: Some tutorial
                     author:
                       id: 13
-                      first_name: Irma
-                      last_name: Espino
+                      first_name: Carla
+                      last_name: Baños
                     competences: []
               schema:
                 "$ref": "#/components/schemas/course"
@@ -480,27 +481,29 @@ paths:
               examples:
                 test_example:
                   value:
-                    id: 5
-                    name: Nam harum incidunt deserunt ratione hic quisquam at.
-                    description: '["Quis facere tempore provident ipsum nobis repellendus.
-                      Quas possimus ipsam architecto blanditiis ipsum. Repellendus
-                      ea dolor sed non beatae voluptates.", "Sit vero dicta consequuntur
-                      deleniti error. Cumque impedit tenetur rerum adipisci atque
-                      tempore eos. Ab blanditiis consequatur corporis doloremque sapiente
-                      maxime similique pariatur. Molestias error quod alias id iure
-                      consequatur excepturi vitae.", "Quasi cumque distinctio ipsum
-                      molestiae amet quidem accusantium quisquam. Corporis maiores
-                      iure quos velit perspiciatis delectus illum cupiditate. Dicta
-                      inventore exercitationem fugit nobis."]'
+                    id: 9
+                    name: Dolore aliquid beatae pariatur corporis quaerat magni dolor
+                      vitae.
+                    description: '["Explicabo laborum ratione iure quas non iste.
+                      Magni incidunt tempore optio accusantium asperiores numquam.
+                      Nulla nobis delectus labore voluptatibus. A atque nulla esse
+                      beatae.", "Sed alias ab debitis aliquid fugiat. Soluta similique
+                      dolore sunt illum. Repellat amet autem harum excepturi voluptas
+                      fugit laboriosam eaque. Quaerat alias minus id quae minima.
+                      Suscipit deleniti nihil possimus quis vel excepturi.", "Error
+                      omnis cupiditate quibusdam quas laboriosam esse eius. Cupiditate
+                      doloremque dolores omnis et nulla tempore officia. Eos aspernatur
+                      fugit fuga laboriosam veritatis fugiat ipsa. Provident iste
+                      optio ullam aperiam voluptatibus. Eum quo at voluptas nam incidunt."]'
                     author:
                       id: 14
-                      first_name: Lino
-                      last_name: Salamanca
+                      first_name: Claudia
+                      last_name: Fierro
                     competences:
-                    - id: 15
-                      name: voluptatibus
-                    - id: 16
-                      name: sit
+                    - id: 17
+                      name: illum
+                    - id: 18
+                      name: illo
               schema:
                 "$ref": "#/components/schemas/course"
         '404':
@@ -534,18 +537,18 @@ paths:
               examples:
                 test_example:
                   value:
-                    id: 6
+                    id: 10
                     name: Programming
                     description: Some tutorial
                     author:
                       id: 15
-                      first_name: Margarita
-                      last_name: Gómez
+                      first_name: Sonia
+                      last_name: Gordillo
                     competences:
-                    - id: 21
-                      name: doloribus
-                    - id: 22
-                      name: eos
+                    - id: 23
+                      name: perspiciatis
+                    - id: 24
+                      name: quos
               schema:
                 "$ref": "#/components/schemas/course"
         '404':
