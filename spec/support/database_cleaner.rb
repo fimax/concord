@@ -8,10 +8,7 @@ RSpec.configure do |config|
   end
 
   config.before(:example) do |example|
-    is_feature_example = example.metadata[:type].eql?(:feature) || example.metadata[:feature].is_a?(TrueClass)
-    current_strategy = is_feature_example ? [:deletion, except: %w(products services)] : :transaction
-
-    DatabaseCleaner.strategy = current_strategy
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.start
   end
 

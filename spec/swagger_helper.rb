@@ -15,13 +15,117 @@ RSpec.configure do |config|
   # document below. You can override this behavior by adding a openapi_spec tag to the
   # the root example_group in your specs, e.g. describe '...', openapi_spec: 'v2/swagger.json'
   config.openapi_specs = {
-    'v1/swagger.yaml' => {
+    'api/v1/swagger.yaml' => {
       openapi: '3.0.1',
       info: {
         title: 'API V1',
         version: 'v1'
       },
       paths: {},
+      components: {
+        schemas: {
+          author: {
+            type: 'object',
+            required: [:id, :first_name, :last_name],
+            properties: {
+              id: {
+                type: 'integer',
+                example: '1'
+              },
+              first_name: {
+                type: 'string',
+                example: 'Maxim'
+              },
+              last_name: {
+                type: 'string',
+                example: 'Pariyskiy',
+              }
+            }
+          },
+          competence: {
+            type: 'object',
+            required: [:id, :name],
+            properties: {
+              id: {
+                type: 'integer',
+                example: '1'
+              },
+              name: {
+                type: 'string',
+                example: 'Programming'
+              }
+            }
+          },
+          not_found: {
+            type: 'object'
+          },
+          unprocessable_entity: {
+            type: 'object',
+            properties: {
+              errors: { type: 'array', items: { type: 'string' } }
+            }
+          },
+          course: {
+            type: 'object',
+            required: [:id, :name],
+            properties: {
+              id: {
+                type: 'integer',
+                example: '1'
+              },
+              name: {
+                type: 'string',
+                example: 'Programming'
+              },
+              description: {
+                type: 'string',
+                example: 'Some tutorial'
+              },
+              author: {
+                type: 'hash',
+                properties: {
+                  id: {
+                    type: 'integer',
+                    example: '1'
+                  },
+                  first_name: {
+                    type: 'string',
+                    example: 'Maxim'
+                  },
+                  last_name: {
+                    type: 'string',
+                    example: 'Pariyskiy',
+                  }
+                }
+              },
+              competences: {
+                type: 'array',
+                items: {
+                  properties: {
+                    id: {
+                      type: 'integer',
+                      example: '1'
+                    },
+                    name: {
+                      type: 'string',
+                      example: 'Programming'
+                    }
+                  }
+                }
+              }
+            }
+          },
+          not_found: {
+            type: 'object'
+          },
+          unprocessable_entity: {
+            type: 'object',
+            properties: {
+              errors: { type: 'array', items: { type: 'string' } }
+            }
+          }
+        }
+      },
       servers: [
         {
           url: 'https://{defaultHost}',

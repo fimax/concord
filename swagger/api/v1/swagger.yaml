@@ -1,0 +1,684 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/authors":
+    get:
+      summary: retrieves authors
+      tags:
+      - Authors
+      description: Retrieves authors.
+      parameters:
+      - name: page
+        in: path
+        description: Page number
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                  - id: 1
+                    first_name: Geraldine
+                    last_name: Salgado
+                  - id: 2
+                    first_name: Lorena
+                    last_name: Espino
+                  - id: 3
+                    first_name: Marisol
+                    last_name: Onofre
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/author"
+    post:
+      summary: create author
+      tags:
+      - Authors
+      description: Create a new author.
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 4
+                    first_name: Test
+                    last_name: Author
+              schema:
+                "$ref": "#/components/schemas/author"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/author"
+  "/api/v1/authors/{id}":
+    get:
+      summary: show author
+      tags:
+      - Authors
+      description: Get the details for a particular author
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the author
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 5
+                    first_name: Test
+                    last_name: Author
+              schema:
+                "$ref": "#/components/schemas/author"
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Author with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    put:
+      summary: update author
+      tags:
+      - Authors
+      description: Update an author
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the author
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 6
+                    first_name: New
+                    last_name: Name
+              schema:
+                "$ref": "#/components/schemas/author"
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Author with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Last name can't be blank
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/author"
+    delete:
+      summary: delete author
+      tags:
+      - Authors
+      description: Delete an author
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the author
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: successful
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Author with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+  "/api/v1/competences":
+    get:
+      summary: retrieves competences
+      tags:
+      - Competences
+      description: Retrieves competences.
+      parameters:
+      - name: page
+        in: path
+        description: Page number
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                  - id: 1
+                    name: hic
+                  - id: 2
+                    name: culpa
+                  - id: 3
+                    name: iusto
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/competence"
+    post:
+      summary: create competence
+      tags:
+      - Competences
+      description: Create a new competence.
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 4
+                    name: Programming
+              schema:
+                "$ref": "#/components/schemas/competence"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/competence"
+  "/api/v1/competences/{id}":
+    get:
+      summary: show competence
+      tags:
+      - Competences
+      description: Get the details for a particular competence
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the competence
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 5
+                    name: Programming
+              schema:
+                "$ref": "#/components/schemas/competence"
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Competence with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    put:
+      summary: update competence
+      tags:
+      - Competences
+      description: Update an competence
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the competence
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 6
+                    name: Coding
+              schema:
+                "$ref": "#/components/schemas/competence"
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Competence with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Name can't be blank
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/competence"
+    delete:
+      summary: delete competence
+      tags:
+      - Competences
+      description: Delete an competence
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the competence
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: successful
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Competence with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+  "/api/v1/courses":
+    get:
+      summary: retrieves courses
+      tags:
+      - Courses
+      description: Retrieves courses.
+      parameters:
+      - name: page
+        in: path
+        description: Page number
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                  - id: 1
+                    name: Ea dolore vitae possimus sed.
+                    description: '["Assumenda dolore quod magnam hic. Veritatis soluta
+                      molestiae sequi distinctio laudantium quaerat veniam eos. Voluptatem
+                      corporis distinctio officiis nisi. Voluptates praesentium quo
+                      quisquam nesciunt asperiores.", "Delectus aut ipsam molestiae
+                      consequuntur quam. Non provident voluptates nihil minima. Quo
+                      velit eos labore exercitationem pariatur est reprehenderit.
+                      Laudantium reprehenderit cum ullam distinctio architecto et.
+                      Accusantium veniam sed vel fugiat beatae.", "Dicta quibusdam
+                      quo occaecati ea architecto quis. Consequuntur quia sint atque
+                      beatae possimus accusamus. Quas dolorum repellendus quidem similique
+                      fugit id."]'
+                    author:
+                      id: 10
+                      first_name: Homero
+                      last_name: Mercado
+                    competences:
+                    - id: 9
+                      name: distinctio
+                    - id: 10
+                      name: culpa
+                  - id: 2
+                    name: Delectus eos fugiat consequatur quam maxime culpa.
+                    description: '["Distinctio ipsum fugiat quae dignissimos. Mollitia
+                      doloribus aut minima iure similique temporibus odit cumque.
+                      Non consectetur delectus facilis eos cum fugiat. Praesentium
+                      adipisci numquam laudantium dolore voluptas saepe enim.", "Laborum
+                      corrupti excepturi repudiandae esse dolore pariatur incidunt
+                      occaecati. Adipisci consectetur magni veniam libero praesentium
+                      unde molestiae. Molestias numquam provident exercitationem debitis
+                      ratione. Voluptatum laudantium doloribus provident cum repudiandae.
+                      Distinctio nesciunt reprehenderit nobis facilis assumenda commodi.",
+                      "Repudiandae quae eos asperiores accusantium architecto corrupti.
+                      Cupiditate quis molestias voluptatum at sint asperiores iste
+                      veritatis. Quasi modi quia minima ea iste omnis nesciunt iure.
+                      Soluta est totam magnam temporibus omnis earum."]'
+                    author:
+                      id: 11
+                      first_name: Bernardo
+                      last_name: Montes
+                    competences:
+                    - id: 9
+                      name: distinctio
+                  - id: 3
+                    name: Natus sequi cupiditate deleniti distinctio modi velit possimus.
+                    description: '["Aperiam magnam necessitatibus laudantium ex. Animi
+                      voluptates iure in consectetur repellat aliquam officia. Dolor
+                      et distinctio animi laboriosam.", "Aperiam quos dicta accusamus
+                      ab neque doloremque rem. Consectetur laborum quo est quod velit
+                      reiciendis. Quia eos delectus voluptatibus temporibus non. Rerum
+                      accusamus nihil quam nisi.", "A temporibus molestiae consequatur
+                      repudiandae. Nemo maiores in suscipit delectus. Quisquam itaque
+                      voluptates aliquam error eius deserunt sapiente. Rem ad maiores
+                      ullam optio enim quo reiciendis. Incidunt possimus quasi voluptatum
+                      ea."]'
+                    author:
+                      id: 12
+                      first_name: Ramsés
+                      last_name: Saavedra
+                    competences: []
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/course"
+    post:
+      summary: create course
+      tags:
+      - Courses
+      description: Create a new course.
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 4
+                    name: Programming
+                    description: Some tutorial
+                    author:
+                      id: 13
+                      first_name: Irma
+                      last_name: Espino
+                    competences: []
+              schema:
+                "$ref": "#/components/schemas/course"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/course"
+  "/api/v1/courses/{id}":
+    get:
+      summary: show course
+      tags:
+      - Courses
+      description: Get the details for a particular course
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the course
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 5
+                    name: Nam harum incidunt deserunt ratione hic quisquam at.
+                    description: '["Quis facere tempore provident ipsum nobis repellendus.
+                      Quas possimus ipsam architecto blanditiis ipsum. Repellendus
+                      ea dolor sed non beatae voluptates.", "Sit vero dicta consequuntur
+                      deleniti error. Cumque impedit tenetur rerum adipisci atque
+                      tempore eos. Ab blanditiis consequatur corporis doloremque sapiente
+                      maxime similique pariatur. Molestias error quod alias id iure
+                      consequatur excepturi vitae.", "Quasi cumque distinctio ipsum
+                      molestiae amet quidem accusantium quisquam. Corporis maiores
+                      iure quos velit perspiciatis delectus illum cupiditate. Dicta
+                      inventore exercitationem fugit nobis."]'
+                    author:
+                      id: 14
+                      first_name: Lino
+                      last_name: Salamanca
+                    competences:
+                    - id: 15
+                      name: voluptatibus
+                    - id: 16
+                      name: sit
+              schema:
+                "$ref": "#/components/schemas/course"
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Course with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    put:
+      summary: update course
+      tags:
+      - Courses
+      description: Update an course
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the course
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    id: 6
+                    name: Programming
+                    description: Some tutorial
+                    author:
+                      id: 15
+                      first_name: Margarita
+                      last_name: Gómez
+                    competences:
+                    - id: 21
+                      name: doloribus
+                    - id: 22
+                      name: eos
+              schema:
+                "$ref": "#/components/schemas/course"
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Course with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Description can't be blank
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/course"
+    delete:
+      summary: delete course
+      tags:
+      - Courses
+      description: Delete an course
+      parameters:
+      - name: id
+        in: path
+        description: The ID for the course
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: successful
+        '404':
+          description: not found
+          content:
+            application/json:
+              examples:
+                test_example:
+                  value:
+                    errors:
+                    - Couldn't find Course with 'id'=999999999
+              schema:
+                "$ref": "#/components/schemas/not_found"
+components:
+  schemas:
+    author:
+      type: object
+      required:
+      - id
+      - first_name
+      - last_name
+      properties:
+        id:
+          type: integer
+          example: '1'
+        first_name:
+          type: string
+          example: Maxim
+        last_name:
+          type: string
+          example: Pariyskiy
+    competence:
+      type: object
+      required:
+      - id
+      - name
+      properties:
+        id:
+          type: integer
+          example: '1'
+        name:
+          type: string
+          example: Programming
+    course:
+      type: object
+      required:
+      - id
+      - name
+      properties:
+        id:
+          type: integer
+          example: '1'
+        name:
+          type: string
+          example: Programming
+        description:
+          type: string
+          example: Some tutorial
+        author:
+          type: hash
+          properties:
+            id:
+              type: integer
+              example: '1'
+            first_name:
+              type: string
+              example: Maxim
+            last_name:
+              type: string
+              example: Pariyskiy
+        competences:
+          type: array
+          items:
+            properties:
+              id:
+                type: integer
+                example: '1'
+              name:
+                type: string
+                example: Programming
+    not_found:
+      type: object
+    unprocessable_entity:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
